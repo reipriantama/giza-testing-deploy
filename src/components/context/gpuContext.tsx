@@ -17,13 +17,7 @@ interface GpuContextType {
 const GpuContext = createContext<GpuContextType | null>(null);
 
 const GpuContextProvider: React.FC<any> = ({ children }) => {
-  const [gpuTier, setGpuTier] = useState<GpuTier | null>({
-    tier: 0,
-    isMobile: false,
-    type: "",
-    fps: 0,
-    gpu: "Unknown GPU",
-  });
+  const [gpuTier, setGpuTier] = useState<any>();
 
   useEffect(() => {
     const fetchGpuTier = async () => {
