@@ -22,7 +22,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 function App() {
   const [isSecondaryButton, setIsSecondaryButton] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
-  const { gpuTier } = useContext(Gpu);
+  const { gpuTier }: any = useContext(Gpu);
   console.log(gpuTier);
 
   useGSAP(() => {
