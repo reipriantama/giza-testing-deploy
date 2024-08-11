@@ -6,9 +6,10 @@ import CtaButton from "../../icons/ctaButton";
 const ButtonLottie: React.FC<any> = (props: any) => {
   const [isShowLottie, setIsShowLottie] = useState(false);
   const lottieButton = useRef<any>(null);
+  const lotButtonSpark = useRef<any>(null); // Declare ref for lotButtonSpark
 
   useEffect(() => {
-    lottie.loadAnimation({
+    lotButtonSpark.current = lottie.loadAnimation({
       container: lottieButton.current,
       renderer: "svg",
       loop: true,
@@ -17,19 +18,26 @@ const ButtonLottie: React.FC<any> = (props: any) => {
     });
 
     return () => {
-      lottie.destroy();
+      if (lotButtonSpark.current) {
+        lotButtonSpark.current.destroy();
+      }
     };
   }, []);
 
   const handleShowLottie = () => {
     setIsShowLottie(true);
-    lottie.play();
+    if (lotButtonSpark.current) {
+      lotButtonSpark.current.play();
+    }
   };
 
   const handleHideLottie = () => {
     setIsShowLottie(false);
-    lottie.pause();
+    if (lotButtonSpark.current) {
+      lotButtonSpark.current.pause();
+    }
   };
+
   return (
     <button
       onMouseEnter={handleShowLottie}
