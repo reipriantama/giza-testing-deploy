@@ -48,8 +48,8 @@ const Footer: React.FC = () => {
       animationData: doorLottie,
     });
 
-    lotLine.hide();
-    lotDoor.hide();
+    if (lotLine) lotLine.hide();
+    if (lotDoor) lotDoor.hide();
 
     ScrollTrigger.create({
       trigger: container.current,
@@ -57,18 +57,22 @@ const Footer: React.FC = () => {
       once: true,
       // markers: true,
       onEnter: () => {
-        lotLine.show();
-        if (gpuTier.tier === 1) {
+        if (lotLine && lotLine.show) {
+          lotLine.show();
+        }
+        if (gpuTier.tier === 1 && lotLine && lotLine.goToAndStop) {
           lotLine.goToAndStop(lotLine.totalFrames - 1, true);
-        } else if (gpuTier.tier === 3) {
+        } else if (gpuTier.tier === 3 && lotLine && lotLine.play) {
           lotLine.play();
         }
 
         setTimeout(() => {
-          lotDoor.show();
-          if (gpuTier.tier === 1) {
+          if (lotDoor && lotDoor.show) {
+            lotDoor.show();
+          }
+          if (gpuTier.tier === 1 && lotDoor && lotDoor.goToAndStop) {
             lotDoor.goToAndStop(lotDoor.totalFrames - 1, true);
-          } else if (gpuTier.tier === 3) {
+          } else if (gpuTier.tier === 3 && lotDoor && lotDoor.play) {
             lotDoor.play();
           }
         }, 1000);
