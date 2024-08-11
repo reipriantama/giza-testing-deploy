@@ -111,7 +111,7 @@ const Footer = () => {
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       // lotLine.destroy();
       // lotDoor.destroy();
     };
