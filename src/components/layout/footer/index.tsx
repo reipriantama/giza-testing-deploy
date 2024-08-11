@@ -50,13 +50,8 @@ const Footer = () => {
       animationData: doorLottie,
     });
 
-    if (lotLine) lotLine.hide();
-    if (lotDoor) lotDoor.hide();
-
-    if (!gpuTier) {
-      console.error("gpuTier is null or undefined");
-      return null; // Atau Anda bisa merender fallback UI
-    }
+    lotLine.hide();
+    lotDoor.hide();
 
     ScrollTrigger.create({
       trigger: container.current,
@@ -111,7 +106,6 @@ const Footer = () => {
           clearTimeout(tm);
           lotLine.destroy();
           lotDoor.destroy();
-          lottie.destroy();
         };
       },
     });
@@ -120,7 +114,6 @@ const Footer = () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       lotLine.destroy();
       lotDoor.destroy();
-      lottie.destroy();
     };
   }, []);
 
