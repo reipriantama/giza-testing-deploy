@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { getGPUTier } from 'detect-gpu';
+import { getGPUTier } from "detect-gpu";
 
 interface GpuTier {
   tier?: number;
@@ -14,10 +14,16 @@ interface GpuContextType {
   setGpuTier: (gpu: GpuTier | null) => void;
 }
 
-const GpuContext = createContext<GpuContextType | any>(undefined);
+const GpuContext = createContext<GpuContextType | null>(null);
 
 const GpuContextProvider: React.FC<any> = ({ children }) => {
-  const [gpuTier, setGpuTier] = useState<GpuTier | null>(null);
+  const [gpuTier, setGpuTier] = useState<any>({
+    tier: 0,
+    isMobile: false,
+    type: "",
+    fps: 0,
+    gpu: "Unknown GPU",
+  });
 
   useEffect(() => {
     const fetchGpuTier = async () => {
@@ -27,9 +33,9 @@ const GpuContextProvider: React.FC<any> = ({ children }) => {
         setGpuTier({
           tier: gpu.tier ?? null,
           isMobile: gpu.isMobile ?? false,
-          type: gpu.type ?? '',
+          type: gpu.type ?? "",
           fps: gpu.fps ?? 0,
-          gpu: gpu.gpu ?? ''
+          gpu: gpu.gpu ?? "",
         });
       } catch (error) {
         console.error("Failed to fetch GPU tier:", error);

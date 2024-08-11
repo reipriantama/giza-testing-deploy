@@ -30,7 +30,7 @@ const Footer = () => {
   const textAnimateSecond = useRef<HTMLDivElement>(null);
   const textAnimateThird = useRef<HTMLDivElement>(null);
   const container = useRef<HTMLDivElement>(null);
-  const { gpuTier } = useContext(Gpu);
+  const { gpuTier }: any = useContext(Gpu);
 
   //---animation text start---//
   useGSAP(() => {
@@ -52,6 +52,11 @@ const Footer = () => {
 
     if (lotLine) lotLine.hide();
     if (lotDoor) lotDoor.hide();
+
+    if (!gpuTier) {
+      console.error("gpuTier is null or undefined");
+      return null; // Atau Anda bisa merender fallback UI
+    }
 
     ScrollTrigger.create({
       trigger: container.current,

@@ -19,7 +19,7 @@ import Transition from "../transition";
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import ScrollSmoother from "gsap/dist/ScrollSmoother";
-import Lottie from "lottie-web";
+import lottie from "lottie-web";
 import { Gpu } from "../../context/gpuContext";
 
 gsap.registerPlugin(CustomEase, ScrollToPlugin, ScrollTrigger, ScrollSmoother);
@@ -27,7 +27,7 @@ gsap.registerPlugin(CustomEase, ScrollToPlugin, ScrollTrigger, ScrollSmoother);
 const Hero: React.FC<any> = (props: any) => {
   const [playAnimation, setPlayAnimation] = useState(false);
   const [zIndex, setZIndex] = useState(0);
-  const { gpuTier } = useContext(Gpu);
+  const { gpuTier }: any = useContext(Gpu);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const imageMoveRefs = useRef<HTMLImageElement[]>([]);
@@ -40,16 +40,21 @@ const Hero: React.FC<any> = (props: any) => {
   const lotButton = useRef<any>(null);
 
   useEffect(() => {
-    // Ensure gpuTier is defined before accessing its properties
-    if (gpuTier) {
-      const gpuScan = gpuTier.tier === 1 ? false : true;
-      Lottie.loadAnimation({
+    // Pastikan `lotButton` sudah diinisialisasi
+    if (gpuTier && lotButton.current) {
+      const gpuScan = gpuTier.tier !== 1; // Animasi loop dan autoplay jika tier bukan 1
+      const lotieButton = lottie.loadAnimation({
         container: lotButton.current,
         renderer: "svg",
         loop: gpuScan,
         autoplay: gpuScan,
         animationData: lottieButton,
       });
+
+      return () => {
+        // Pastikan animasi dihentikan dan dibersihkan dengan benar
+        lotieButton.destroy();
+      };
     }
   }, [gpuTier]);
 
