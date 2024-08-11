@@ -1,23 +1,23 @@
 import { createContext, useState, useEffect } from "react";
 import { getGPUTier } from "detect-gpu";
 
-// interface GpuTier {
-//   tier?: number;
-//   isMobile?: boolean;
-//   type?: string;
-//   fps?: number;
-//   gpu?: string;
-// }
+interface GpuTier {
+  tier?: number;
+  isMobile?: boolean;
+  type?: string;
+  fps?: number;
+  gpu?: string;
+}
 
-// interface GpuContextType {
-//   gpuTier: GpuTier | null;
-//   setGpuTier: (gpu: GpuTier | null) => void;
-// }
+interface GpuContextType {
+  gpuTier: GpuTier | null;
+  setGpuTier: (gpu: GpuTier | null) => void;
+}
 
-const GpuContext = createContext<any>(null);
+const GpuContext = createContext<GpuContextType | null>(null);
 
 const GpuContextProvider: React.FC<any> = ({ children }) => {
-  const [gpuTier, setGpuTier] = useState<any>({
+  const [gpuTier, setGpuTier] = useState<GpuTier | null>({
     tier: 0,
     isMobile: false,
     type: "",
