@@ -57,25 +57,23 @@ const Footer: React.FC = () => {
       once: true,
       // markers: true,
       onEnter: () => {
-        if (lotLine && lotLine.show) {
-          lotLine.show();
-        }
-        if (gpuTier.tier === 1 && lotLine && lotLine.goToAndStop) {
-          lotLine.goToAndStop(lotLine.totalFrames - 1, true);
-        } else if (gpuTier.tier === 3 && lotLine && lotLine.play) {
-          lotLine.play();
-        }
+        lotLine.show();
 
-        setTimeout(() => {
-          if (lotDoor && lotDoor.show) {
-            lotDoor.show();
+        lotDoor.show();
+
+        if (gpuTier) {
+          if (gpuTier.tier === 1) {
+            lotLine?.goToAndStop(lotLine.totalFrames - 1, true);
+            setTimeout(() => {
+              lotDoor?.goToAndStop(lotDoor.totalFrames - 1, true);
+            }, 1000);
+          } else if (gpuTier.tier === 3) {
+            lotLine?.play();
+            setTimeout(() => {
+              lotDoor?.play();
+            }, 1000);
           }
-          if (gpuTier.tier === 1 && lotDoor && lotDoor.goToAndStop) {
-            lotDoor.goToAndStop(lotDoor.totalFrames - 1, true);
-          } else if (gpuTier.tier === 3 && lotDoor && lotDoor.play) {
-            lotDoor.play();
-          }
-        }, 1000);
+        }
 
         const tm = setTimeout(
           () => {
