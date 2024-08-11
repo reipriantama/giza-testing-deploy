@@ -5,12 +5,12 @@ import LinkedinIcon from "../../icons/linkedin";
 import MailIcon from "../../icons/mail";
 // import TelpIcon from "../../icons/telp";
 // import TwitterIcon from "../../icons/twitter";
-import React, { Suspense, useContext, useRef } from "react";
+import React, { useContext, useRef } from "react";
 import doorLottie from "../../../assets/lottie/doorNew.json";
 import lineLottie from "../../../assets/lottie/lineAccent.json";
 import style from "./footer.module.scss";
 import gsap from "gsap";
-// import ButtonLottie from "../../ui/buttonLottie";
+import ButtonLottie from "../../ui/buttonLottie";
 import { useGSAP } from "@gsap/react";
 import lottie from "lottie-web";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
@@ -19,11 +19,9 @@ import YoutubeIcon from "../../icons/youtube";
 import TiktokIcon from "../../icons/tiktokIcon";
 import { Gpu } from "../../context/gpuContext";
 
-const ButtonLottie = React.lazy(() => import("../../ui/buttonLottie"));
-
 gsap.registerPlugin(ScrollTrigger);
 
-const Footer = () => {
+const Footer: React.FC = () => {
   const lottieDoor = useRef<any>(null);
   const lottieLine = useRef<any>(null);
   const textAnimateFirst = useRef<HTMLDivElement>(null);
@@ -154,9 +152,7 @@ const Footer = () => {
         <h5 className="bg-gradient-primary bg-clip-text text-h1-mobile font-semibold text-transparent lg:text-[80px] lg:leading-[100px]">
           Contact Us
         </h5>
-        <Suspense fallback={null}>
-          <ButtonLottie />
-        </Suspense>
+        <ButtonLottie />
       </div>
       <div className="lg space-y-[56px] border-t-[1px] border-[#43474B] pt-[60px] lg:flex lg:justify-between lg:gap-[143px] lg:space-y-0">
         <div className="space-y-4 lg:space-y-0">
