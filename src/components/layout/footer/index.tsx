@@ -103,16 +103,18 @@ const Footer: React.FC = () => {
         );
         return () => {
           clearTimeout(tm);
-          // lotLine.destroy();
-          // lotDoor.destroy();
+          lotLine.destroy();
+          lotDoor.destroy();
+          lottie.destroy();
         };
       },
     });
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      // lotLine.destroy();
-      // lotDoor.destroy();
+      lotLine.destroy();
+      lotDoor.destroy();
+      lottie.destroy();
     };
   }, []);
 
