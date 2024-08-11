@@ -1,0 +1,29 @@
+.openModal {
+  animation: fadeInModal 1s ease forwards;
+}
+
+.closeModal {
+  animation: fadeOutModal 1s ease forwards;
+}
+
+@keyframes fadeInModal {
+  from {
+    transform: translateY(-1000px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutModal {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-1000px);
+  }
+}
+
+.animateFadeIn {
+  animation: fadeIn 0.3s ease forwards;
+}

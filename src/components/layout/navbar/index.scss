@@ -1,0 +1,46 @@
+/* @keyframes bg-slide-down {
+  0% {
+    background-position: top;
+  }
+  100% {
+    background-position: bottom;
+  }
+}
+
+.bgSlide {
+  background: white;
+  background-size: 100% 200%;
+  background-position: top;
+  animation: bg-slide-down 1s forwards;
+} */
+
+
+#navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  transition: top 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+#navbar[data-hidden='true'] {
+  top: -5rem; 
+}
+
+#navbar[data-hidden='false'] {
+  top: 0; 
+}
+
+
+
+.navbarContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  transition: ease 0.4s;
+  &--scrolled {
+    height: 1000px;
+  }
+}

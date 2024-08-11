@@ -1,0 +1,39 @@
+.lineLottie {
+  //   position: absolute;
+  // transform: translateX(-78%) translateY(80%);
+  top: 10rem;
+  left: -40rem;
+  width: 865px;
+  height: 202px;
+  z-index: 10;
+}
+
+.doorLottie {
+  //   position: absolute;
+  // transform: translateX(-16%);
+  top: 0;
+  right: -4rem;
+  width: 487px;
+  height: 554px;
+}
+
+@media (min-width: 1280px) {
+  .lineLottie {
+    top: 11rem;
+    left: -1rem;
+    width: 1050px;
+    height: 249px;
+  }
+
+  .doorLottie {
+    // transform: translateX(76%) translateY(8%);
+    top: 3rem;
+    right: -1px;
+    width: 762px;
+    height: 867px;
+  }
+}
+
+.hiddenText {
+  opacity: 0;
+}

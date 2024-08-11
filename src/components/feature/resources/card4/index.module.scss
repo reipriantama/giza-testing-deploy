@@ -1,0 +1,58 @@
+.backgroundGradient {
+  background: linear-gradient(0.9turn, #1e1e1e 0%, #010101 100%);
+  transition: all 1s ease-in-out;
+  animation: backgroundGradientReverse 500ms ease-in-out forwards;
+}
+
+.backgroundGradient:hover {
+  background: linear-gradient(0.2turn, #1e1e1e 0%, #010101 100%);
+  animation: backgroundGradient 500ms ease-in-out forwards;
+}
+
+@keyframes backgroundGradient {
+  0% {
+    background: linear-gradient(0.9turn, #1e1e1e 0%, #010101 100%);
+  }
+  10% {
+    background: linear-gradient(0.8turn, #1e1e1e 0%, #010101 100%);
+  }
+  20% {
+    background: linear-gradient(0.7turn, #1e1e1e 0%, #010101 100%);
+  }
+  30% {
+    background: linear-gradient(0.6turn, #1e1e1e 0%, #010101 100%);
+  }
+  40% {
+    background: linear-gradient(0.5turn, #1e1e1e 0%, #010101 100%);
+  }
+  50% {
+    background: linear-gradient(0.4turn, #1e1e1e 0%, #010101 100%);
+  }
+  60% {
+    background: linear-gradient(0.3turn, #1e1e1e 0%, #010101 100%);
+  }
+  100% {
+    background: linear-gradient(0.2turn, #1e1e1e 0%, #010101 100%);
+  }
+}
+
+@keyframes backgroundGradientReverse {
+  0% {
+    background: linear-gradient(0.2turn, #1e1e1e 0%, #010101 100%);
+  }
+  40% {
+    background: linear-gradient(0.5turn, #1e1e1e 0%, #010101 100%);
+  }
+  50% {
+    background: linear-gradient(0.6turn, #1e1e1e 0%, #010101 100%);
+  }
+  60% {
+    background: linear-gradient(0.7turn, #1e1e1e 0%, #010101 100%);
+  }
+  80% {
+    background: linear-gradient(0.8turn, #1e1e1e 0%, #010101 100%);
+  }
+  100% {
+    background: linear-gradient(0.9turn, #1e1e1e 0%, #010101 100%);
+  }
+}

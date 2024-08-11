@@ -1,0 +1,29 @@
+.group {
+  // position: relative;
+  overflow: hidden;
+}
+
+.buttonHoverBorder {
+  transition: all .5s ease;
+}
+
+.buttonHoverScale {
+  // position: absolute;
+  transition: all 500ms ease;
+}
+
+.group:hover .buttonHoverScale {
+  transform: scale(35);
+}
+
+.buttonHoverWhite {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  z-index: 10;
+  transition: all 500ms ease;
+}
+
+.group:hover .buttonHoverWhite {
+  opacity: 1;
+}
